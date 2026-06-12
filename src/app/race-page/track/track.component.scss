@@ -1,0 +1,40 @@
+:host {
+  position: relative;
+  margin: 0 calc(-1 * var(--app-padding));
+  height: 33px;
+  background: url('assets/grass.png') -30px top / 193px;
+}
+
+.sweet-home {
+  position: absolute;
+  top: -50px;
+  left: 18px;
+  width: 149px;
+  z-index: -3;
+}
+
+.kolobok {
+  position: absolute;
+  top: -28px;
+  left: 152px;
+  width: 55px;
+  z-index: -2;
+}
+
+.fir-tree {
+  position: absolute;
+  top: -66px;
+  right: 27px;
+  width: 123px;
+  height: 91px;
+  z-index: -1;
+}
+
+.fox-tail {
+  position: absolute;
+  top: -50px;
+  right: 18px;
+  width: 37px;
+  height: 71px;
+  z-index: -2;
+}

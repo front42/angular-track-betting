@@ -3,5 +3,11 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
+  width: 1106px;
+  height: 622px;
+  padding: var(--app-padding);
+  background: url('assets/clouds.jpg') no-repeat center top / cover;
+  box-shadow: 0 5px 25px -2px black;
+  border-radius: 8px;
+  overflow: hidden;
 }

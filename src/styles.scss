@@ -2,6 +2,7 @@
   --light-color: #ffeeb5;
   --btn-bg-color: #2d5fbe;
   --btn-hover-bg-color: #3673c4;
+  --app-padding: 20px;
 }
 
 *,
@@ -16,10 +17,13 @@
 }
 
 body {
-  height: 100vh;
-  padding: 21px 21px 4px;
-  font-size: 21px;
-  background: url('assets/clouds.jpg') no-repeat center top / cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  padding: 10px;
+  font-size: 20px;
+  background-color: var(--btn-bg-color);
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -29,14 +33,13 @@ body {
 }
 
 .btn {
-  width: 111px;
-  height: 33px;
+  width: 141px;
+  height: 30px;
   border: none;
   border-radius: 4px;
   font-style: inherit;
   font-size: inherit;
   line-height: 1.6;
-  color: var(--light-color);
   background-color: var(--btn-bg-color);
   box-shadow: 0 0 10px rgba(55, 55, 55, 1);
   transition: 0.3s;
