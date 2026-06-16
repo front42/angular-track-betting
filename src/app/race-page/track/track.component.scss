@@ -1,29 +1,36 @@
 :host {
   position: relative;
   margin: 0 calc(-1 * var(--app-padding));
-  height: 33px;
-  background: url('assets/grass.png') -30px top / 193px;
+  height: 42px;
+  background: url('assets/grass.png') repeat-x left -30px bottom -1px / 199px;
 }
 
 .sweet-home {
   position: absolute;
-  top: -50px;
-  left: 18px;
-  width: 149px;
+  top: -33px;
+  left: -2px;
+  width: 205px;
   z-index: -3;
 }
 
-.kolobok {
+.kolobok,
+.clickjacker {
   position: absolute;
-  top: -28px;
+  top: -19px;
   left: 152px;
   width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.kolobok {
   z-index: -2;
 }
 
 .fir-tree {
   position: absolute;
-  top: -66px;
+  top: -57px;
   right: 27px;
   width: 123px;
   height: 91px;
@@ -32,9 +39,9 @@
 
 .fox-tail {
   position: absolute;
-  top: -50px;
-  right: 18px;
-  width: 37px;
+  top: -40px;
+  right: 17px;
+  width: 40px;
   height: 71px;
   z-index: -2;
 }
