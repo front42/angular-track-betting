@@ -1,6 +1,14 @@
 <nav>
-  <button class="btn" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Battlefield</button>
-  <button class="btn" routerLink="winners" routerLinkActive="active">Winners</button>
+  <button class="btn" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    Battlefield
+  </button>
+  <button class="btn" routerLink="winners" routerLinkActive="active" #winners="routerLinkActive">
+    Winners
+  </button>
 </nav>
+
+<button class="btn start-bank-btn" [style.backgroundColor]="winners.isActive ? 'var(--money-color)' : 'darkred'">
+  {{ winners.isActive ? 'Bank' : 'Start' }}
+</button>
 
 <h1>Kolobok Deadly Race</h1>

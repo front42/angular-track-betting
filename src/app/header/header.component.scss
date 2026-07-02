@@ -8,7 +8,6 @@
   border-radius: 3px;
   box-shadow: 0 2px 5px black;
   background: url('assets/red-tree.jpg') repeat-x left top / 356px 50px;
-  font-style: italic;
 }
 
 nav {
@@ -17,8 +16,18 @@ nav {
   width: 293px;
 }
 
-h1 {
-  font-size: 35px;
-  font-weight: inherit;
-  text-shadow: 0 0 4px white;
+.start-bank-btn {
+  margin: 0 11px;
+  width: 63px;
+  transition: filter 0.3s;
+}
+
+.start-bank-btn:hover {
+  filter: brightness(1.2);
+}
+
+@media screen and (max-width: 767px) {
+  nav {
+    width: 215px;
+  }
 }

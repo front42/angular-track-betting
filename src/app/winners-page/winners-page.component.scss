@@ -12,7 +12,8 @@
 //   margin: 0 auto -55px;
 //   width: 356px;
 //   height: 175px;
-//   border: 1px solid var(--light-color);
+//   // border: 1px solid var(--light-color);
+//   background: url('assets/bank.png') no-repeat top / 137px;
 //   z-index: -4;
 // }
 
@@ -27,18 +28,19 @@
 
 .fir-tree {
   margin: 0 -195px 0 calc(var(--app-padding) - 5px);
-  height: 370px;
+  width: 408px;
   z-index: -3;
 }
 
 .kolobok {
   margin-left: -54px;
-  height: 142px;
+  width: 142px;
   z-index: -1;
 }
 
 .fox {
   margin: 0 calc(var(--app-padding) - 5px) 0 -200px;
-  height: 392px;
+  width: 359px;
+  height: auto;
   z-index: -2;
 }
