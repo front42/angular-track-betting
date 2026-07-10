@@ -1,10 +1,11 @@
 # <img src="public/assets/kolobok.svg" alt="Angular Track Betting" width="17" height="17"/>&#8239;angular-track-betting
+
 Risk all your candies:  
-***https://front42.github.io/angular-track-betting***  
+_**https://front42.github.io/angular-track-betting**_
 
-<img src="public/assets/front42.jpg" alt="logo" width="107" height="40"/>  
+<img src="public/assets/front42.jpg" alt="logo" width="107" height="40"/>
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) versions 19.2.15 & 22.0.5.
 
 "externalDependencies": ["assets/*"] added in angular.json for gh-pages deploy: no css-paths errors shown when build, check browser console.
 
@@ -44,7 +45,7 @@ This will compile your project and store the build artifacts in the `dist/` dire
 
 ## Running unit tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
 
 ```bash
 ng test
