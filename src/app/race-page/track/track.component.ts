@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-track',
@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './track.component.html',
   styleUrl: './track.component.scss',
 })
-export class TrackComponent {}
+export class TrackComponent {
+  fill = input.required<string>();
+}
