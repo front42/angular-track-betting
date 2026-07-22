@@ -5,6 +5,16 @@
   background: url('assets/grass.png') repeat-x left -30px bottom -1px / 199px;
 }
 
+:host::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  box-shadow: 0 0 2px 2px darkgreen;
+  z-index: -1;
+}
+
 .sweet-home {
   position: absolute;
   bottom: 3px;

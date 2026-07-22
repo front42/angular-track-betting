@@ -65,7 +65,7 @@ img {
   cursor: pointer;
 }
 
-.btn:not(.start-bank-btn) {
+.btn:not(.action-btn) {
   transition: background-color 0.3s;
 }
 
@@ -116,6 +116,7 @@ img {
     .kolobok {
       margin-left: 3px;
       width: 34px;
+      filter: drop-shadow(0 0 2px darkred);
     }
   }
 }
