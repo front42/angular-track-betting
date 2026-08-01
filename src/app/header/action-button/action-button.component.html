@@ -1,8 +1,8 @@
 @let mode = currentMode();
 <button
   class="btn action-btn"
-  [disabled]="(mode.type === 'start' && isRaceOn()) || (mode.type === 'home' && isGoingHome())"
-  [style.backgroundColor]="mode.color"
+  [disabled]="isDisabled()"
+  [style.background]="mode.color"
   (click)="handleClick(mode.type)"
 >
   {{ mode.text }}

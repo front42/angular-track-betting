@@ -1,7 +1,8 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, map } from 'rxjs';
+import { RaceService } from '../../services/race.service';
 
 interface ActionButtonMode {
   type: 'start' | 'home' | 'bank';
@@ -17,6 +18,7 @@ interface ActionButtonMode {
 })
 export class ActionButtonComponent {
   private router = inject(Router);
+  private raceService = inject(RaceService);
 
   private currentUrl = toSignal(
     this.router.events.pipe(
@@ -28,41 +30,30 @@ export class ActionButtonComponent {
 
   private isWinnersPage = computed(() => this.currentUrl().includes('winners'));
 
-  protected isRaceOn = signal(false);
-  protected isRaceOver = signal(false);
-  protected isGoingHome = signal(false);
+  private racePhase = this.raceService.phase;
 
   protected currentMode = computed<ActionButtonMode>(() => {
     if (this.isWinnersPage()) {
       return { type: 'bank', text: 'Bank', color: 'var(--money-color)' };
     }
 
-    if (this.isRaceOver()) {
+    const phase = this.racePhase();
+    if (phase === 'finished' || phase === 'returning') {
       return { type: 'home', text: 'Home', color: 'darkred' };
     }
 
     return { type: 'start', text: 'Start', color: 'darkred' };
   });
 
+  protected isDisabled = computed(() => {
+    const mode = this.currentMode();
+    const phase = this.racePhase();
+    return (mode.type === 'start' && phase === 'racing') || (mode.type === 'home' && phase === 'returning');
+  });
+
   protected handleClick(type: ActionButtonMode['type']) {
-    switch (type) {
-      case 'start':
-        this.isRaceOn.set(true);
-        setTimeout(() => {
-          this.isRaceOver.set(true);
-        }, 2000);
-        break;
-      case 'home':
-        this.isGoingHome.set(true);
-        setTimeout(() => {
-          this.isRaceOn.set(false);
-          this.isRaceOver.set(false);
-          this.isGoingHome.set(false);
-        }, 2000);
-        break;
-      case 'bank':
-        console.log('Your balance: 100 candies.');
-        break;
-    }
+    if (type === 'start') this.raceService.startRace();
+    if (type === 'home') this.raceService.returnHome();
+    if (type === 'bank') console.log('Your balance: 100 candies.');
   }
 }
