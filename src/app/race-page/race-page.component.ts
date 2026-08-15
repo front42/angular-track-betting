@@ -11,4 +11,5 @@ import { RaceService } from '../services/race.service';
 export class RacePageComponent {
   private raceService = inject(RaceService);
   protected racers = this.raceService.racers;
+  protected phase = this.raceService.phase;
 }
