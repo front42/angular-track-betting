@@ -40,24 +40,37 @@
   padding: 8px;
   transform: rotate(-21deg);
   cursor: pointer;
-}
 
-.clickjacker::before,
-.clickjacker::after {
-  content: '';
-  margin-bottom: 5px;
-  border-radius: 50%;
-  transition: 0.3s;
-}
+  &::before,
+  &::after {
+    content: '';
+    margin-bottom: 5px;
+    border-radius: 50%;
+    transition: 0.3s;
+  }
 
-.clickjacker:hover::before,
-.clickjacker:hover::after {
-  box-shadow: 0 0 8px 2px red;
+  &:hover::before,
+  &:hover::after {
+    box-shadow: 0 0 8px 2px red;
+  }
 }
 
 .kolobok {
   z-index: -2;
-  transition: 0.3s;
+  transform: rotate(var(--rotation-angle, 0deg));
+  transition:
+    transform var(--race-duration) var(--race-timing-fn),
+    left var(--race-duration) var(--race-timing-fn);
+
+  &.returning {
+    transition:
+      transform 4s ease-out,
+      left 4s ease-out;
+  }
+}
+
+.clickjacker + .kolobok {
+  transition: transform 0.3s;
 }
 
 .clickjacker:hover + .kolobok {
@@ -80,4 +93,51 @@
   width: 40px;
   height: 71px;
   z-index: -2;
+  transform-origin: bottom left;
+  transition: transform 0.3s ease-in-out;
+
+  &.wag-hi {
+    animation: tail-wag-hi 1.2s ease-in-out;
+  }
+  &.wag-bye {
+    animation: tail-wag-bye 1.2s ease-in-out;
+  }
+}
+
+@keyframes tail-wag-hi {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(10deg);
+  }
+  40% {
+    transform: rotate(-6deg);
+  }
+  60% {
+    transform: rotate(4deg);
+  }
+  80% {
+    transform: rotate(-2deg);
+  }
+}
+
+@keyframes tail-wag-bye {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-10deg);
+  }
+  40% {
+    transform: rotate(6deg);
+  }
+  60% {
+    transform: rotate(-4deg);
+  }
+  80% {
+    transform: rotate(2deg);
+  }
 }

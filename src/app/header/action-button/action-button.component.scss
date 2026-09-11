@@ -9,6 +9,7 @@
 }
 
 .action-btn:disabled {
+  pointer-events: none;
   filter: brightness(1);
   cursor: default;
 }

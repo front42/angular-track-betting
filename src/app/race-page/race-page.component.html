@@ -1,3 +1,10 @@
 @for (track of racers(); track track.id) {
-  <app-track [name]="track.name" [fill]="track.fill" [phase]="phase()"></app-track>
+  <app-track
+    [phase]="phase()"
+    [name]="track.name"
+    [fill]="track.fill"
+    [progress]="track.progress"
+    [duration]="track.duration"
+    [timingFn]="track.timingFn"
+  ></app-track>
 }
