@@ -43,7 +43,6 @@ export class RaceService {
 
   startRace(): void {
     if (this._phase() !== 'ready') return;
-
     this._phase.set('racing');
     this.finishedOrder = [];
     this.clearAllTimeouts();

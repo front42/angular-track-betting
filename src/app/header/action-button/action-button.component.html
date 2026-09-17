@@ -1,9 +1,11 @@
+@let phase = racePhase();
 @let mode = currentMode();
+
 <button
   class="btn action-btn"
-  [disabled]="isDisabled()"
   [style.background]="mode.color"
   (click)="handleClick(mode.type)"
+  [disabled]="phase === 'racing' || phase === 'returning'"
 >
   {{ mode.text }}
 </button>

@@ -1,8 +1,17 @@
+@let phase = racePhase();
+
 <nav>
   <button class="btn" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
     Battlefield
   </button>
-  <button class="btn" routerLink="winners" routerLinkActive="active">Winners</button>
+  <button
+    class="btn"
+    routerLink="winners"
+    routerLinkActive="active"
+    [disabled]="phase === 'racing' || phase === 'returning'"
+  >
+    Winners
+  </button>
 </nav>
 
 <app-action-button></app-action-button>

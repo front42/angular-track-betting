@@ -30,7 +30,7 @@ export class ActionButtonComponent {
 
   private isWinnersPage = computed(() => this.currentUrl().includes('winners'));
 
-  private racePhase = this.raceService.phase;
+  protected racePhase = this.raceService.phase;
 
   protected currentMode = computed<ActionButtonMode>(() => {
     if (this.isWinnersPage()) {
@@ -45,15 +45,9 @@ export class ActionButtonComponent {
     return { type: 'start', text: 'Start', color: 'darkred' };
   });
 
-  protected isDisabled = computed(() => {
-    const mode = this.currentMode();
-    const phase = this.racePhase();
-    return (mode.type === 'start' && phase === 'racing') || (mode.type === 'home' && phase === 'returning');
-  });
-
   protected handleClick(type: ActionButtonMode['type']) {
     if (type === 'start') this.raceService.startRace();
     if (type === 'home') this.raceService.returnHome();
-    if (type === 'bank') console.log('Your balance: 100 candies.');
+    if (type === 'bank') console.log('Your balance: 10 candies.');
   }
 }

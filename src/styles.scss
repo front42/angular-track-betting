@@ -84,6 +84,10 @@ img {
   text-shadow: 0 0 2px white;
 }
 
+.btn:disabled {
+  pointer-events: none;
+}
+
 @media screen and (max-width: 767px) {
   h1 {
     font-size: 26px;
