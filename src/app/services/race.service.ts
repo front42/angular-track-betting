@@ -36,6 +36,9 @@ export class RaceService {
   private readonly _phase = signal<RacePhase>('ready');
   readonly phase = this._phase.asReadonly();
 
+  private readonly _raceResults = signal<Racer[]>([]);
+  readonly raceResults = this._raceResults.asReadonly();
+
   constructor() {
     this.destroyRef.onDestroy(() => this.clearAllTimeouts());
   }
@@ -70,6 +73,7 @@ export class RaceService {
   returnHome(): void {
     if (this._phase() !== 'finished') return;
     this._phase.set('returning');
+    this._raceResults.set([]);
     this.clearAllTimeouts();
 
     this._racers.update((currentRacers) => currentRacers.map((racer) => ({ ...racer, progress: 0 })));
@@ -91,6 +95,7 @@ export class RaceService {
 
     if (this.finishedOrder.length === this._racers().length) {
       this.clearAllTimeouts();
+      this._raceResults.set(this.finishedOrder);
 
       const finishDelay = setTimeout(() => this._phase.set('finished'), TAIL_WAG_HI_DURATION_MS);
       this.activeTimeouts.push(finishDelay);

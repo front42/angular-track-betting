@@ -1,6 +1,11 @@
-<div class="winners"></div>
+<div class="bank"></div>
 
 <div class="heroes">
+  @for (racer of podium(); track racer.id) {
+    <svg class="racer" [class]="'dog-' + ($index + 1)" [style.--kolobok-color]="racer.fill" viewBox="0 0 70 70">
+      <use href="assets/kolobok.svg#racer"></use>
+    </svg>
+  }
   <img class="fir-tree" src="assets/fir-tree.png" alt="Fir-Tree" />
   <img class="kolobok" src="assets/kolobok.svg" alt="Kolobok" />
   <img class="fox" ngSrc="assets/fox.png" width="915" height="1000" alt="Fox" />
