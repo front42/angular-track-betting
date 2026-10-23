@@ -3,6 +3,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, map } from 'rxjs';
 import { RaceService } from '../../services/race.service';
+import { BookmakerService } from '../../services/bookmaker.service';
 
 interface ActionButtonMode {
   type: 'start' | 'home' | 'bank';
@@ -19,6 +20,7 @@ interface ActionButtonMode {
 export class ActionButtonComponent {
   private router = inject(Router);
   private raceService = inject(RaceService);
+  private bookmakerService = inject(BookmakerService);
 
   private currentUrl = toSignal(
     this.router.events.pipe(
@@ -48,6 +50,6 @@ export class ActionButtonComponent {
   protected handleClick(type: ActionButtonMode['type']) {
     if (type === 'start') this.raceService.startRace();
     if (type === 'home') this.raceService.returnHome();
-    if (type === 'bank') console.log('Your balance: 10 candies.');
+    if (type === 'bank') this.bookmakerService.manageBank();
   }
 }

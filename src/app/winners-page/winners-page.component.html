@@ -1,4 +1,7 @@
-<div class="bank"></div>
+<div class="bank" [class.open]="isBankOpen()" [class.init-load]="isInitLoad()">
+  <img class="jar" src="assets/bank.png" alt="Bank" />
+  <h2 class="balance">{{ balance() }}</h2>
+</div>
 
 <div class="heroes">
   @for (racer of podium(); track racer.id) {

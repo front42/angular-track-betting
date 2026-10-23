@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { BookmakerService } from '../services/bookmaker.service';
 
@@ -8,7 +8,15 @@ import { BookmakerService } from '../services/bookmaker.service';
   templateUrl: './winners-page.component.html',
   styleUrl: './winners-page.component.scss',
 })
-export class WinnersPageComponent {
+export class WinnersPageComponent implements OnInit {
   private bookmakerService = inject(BookmakerService);
   protected podium = this.bookmakerService.raceResults;
+  protected isBankOpen = this.bookmakerService.isBankOpen;
+  protected balance = this.bookmakerService.balance;
+
+  protected isInitLoad = signal<boolean>(true);
+
+  ngOnInit(): void {
+    setTimeout(() => this.isInitLoad.set(false));
+  }
 }
